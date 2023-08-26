@@ -1,0 +1,16 @@
+from sklearn.linear_model import LinearRegression
+
+# Training data
+X_train = [[100], [200], [500], [600], [700]]  # House sizes (in square feet)
+y_train = [100, 150, 200,250, 300]  # House prices (in  rupees)
+# Creating and training the model
+model = LinearRegression()
+model.fit(X_train, y_train)
+
+# Testing the model
+X_test = [[400]]  # Unseen house sizes for prediction
+y_prediction = model.predict(X_test)
+
+# Printing the predicted house prices
+for size, price in zip(X_test, y_prediction):
+    print(f"Predicted price for a {size[0]} sq. ft. house: {price}  rupees")
